@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <base href="./../../">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./templates/game/main.css">
+    <title>Document</title>
+    <style>
+      body{background: #333;}
+      body{font-family: 'Segoe UI', sans-serif;}
+    </style>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+<meta name="theme-color" content="#040d21"></head>
+  <body>
+    <div class="loading" id="game-loading">
+      <div class="video">
+        <video controls autoplay muted width="100%" height="100%">
+          <source src="./content/intro.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="bar">
+        <div class="loading-bar" id="game-loading-progress">
+          <div class="loading-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="margin: auto; background: none; display: block; shape-rendering: auto;" width="30px" height="100%" viewbox="0 0 100 100" preserveaspectratio="xMidYMid">
+              <path fill="none" stroke="#3279cd" stroke-width="9" stroke-dasharray="130.8603533935547 125.72857482910155" d="M24.3 30C11.4 30 5 43.3 5 50s6.4 20 19.3 20c19.3 0 32.1-40 51.4-40 C88.6 30 95 43.3 95 50s-6.4 20-19.3 20C56.4 70 43.6 30 24.3 30z" stroke-linecap="round" style="transform:scale(0.8);transform-origin:50px 50px">
+                <animate attributename="stroke-dashoffset" repeatcount="indefinite" dur="2.7027027027027026s" keytimes="0;1" values="0;256.58892822265625"/>
+              </path>
+            </svg>
+          </div>
+          <div class="progress">Игра загружается: <span class="val">0%</span></div>
+        </div>
+        <div class="skip-btn hidden" id="game-loading-skip">Пропустить видео</div>
+      </div>
+    </div>
+    <div class="game" id="game-container"></div>
+    <div class="menu" id="game-menu">
+      <div class="col-start">
+        <div class="continue">
+          <div class="bg-circle"></div>
+          <svg width="100%" height="100%" viewbox="0 0 341 340" fill="none" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
+            <mask id="mask0" mask-type="alpha" maskunits="userSpaceOnUse" x="0" y="0" width="341" height="340">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M341 0H0V340H341V0ZM170 263C223.019 263 266 220.019 266 167C266 113.981 223.019 71 170 71C116.981 71 74 113.981 74 167C74 220.019 116.981 263 170 263Z" fill="#C4C4C4"/>
+            </mask>
+            <g mask="url(#mask0)">
+              <rect x="60" y="28" width="279" height="279" fill="url(#pattern0)"/>
+              <rect x="30" y="273" width="279" height="279" transform="rotate(-90 30 273)" fill="url(#pattern1)"/>
+            </g>
+            <path d="M145.08 174V159.996H148.762C149.862 159.996 150.738 160.292 151.389 160.885C152.04 161.477 152.365 162.262 152.365 163.238C152.365 164.052 152.147 164.758 151.711 165.357C151.281 165.95 150.679 166.37 149.904 166.617V166.656C150.874 166.747 151.639 167.096 152.199 167.701C152.759 168.3 153.039 169.065 153.039 169.996C153.039 171.174 152.658 172.138 151.896 172.887C151.135 173.629 150.116 174 148.84 174H145.08ZM146.047 160.885V166.305H148C149.016 166.305 149.829 166.044 150.441 165.523C151.053 165.003 151.359 164.296 151.359 163.404C151.359 161.725 150.367 160.885 148.381 160.885H146.047ZM146.047 167.184V173.121H148.645C149.745 173.121 150.585 172.857 151.164 172.33C151.75 171.803 152.043 171.054 152.043 170.084C152.043 168.15 150.731 167.184 148.107 167.184H146.047ZM168.166 174V165.641C168.114 165.712 168.062 165.784 168.01 165.855C167.964 165.927 167.925 165.982 167.893 166.021L161.887 174H161.252V164H162.15V172.281C162.189 172.21 162.229 172.141 162.268 172.076C162.307 172.011 162.349 171.952 162.395 171.9L168.352 164H169.074V174H168.166ZM173.166 164.82V174H172.268V164H177.15V164.82H173.166ZM179.982 172.223H179.943V178.6H179.045V164H179.943V166.061H179.982C180.34 165.325 180.852 164.758 181.516 164.361C182.186 163.958 182.922 163.756 183.723 163.756C184.992 163.756 185.982 164.195 186.691 165.074C187.408 165.947 187.766 167.135 187.766 168.639C187.766 170.312 187.355 171.666 186.535 172.701C185.721 173.73 184.644 174.244 183.303 174.244C181.805 174.244 180.699 173.57 179.982 172.223ZM179.943 168.502V169.762C179.943 170.764 180.259 171.627 180.891 172.35C181.522 173.066 182.352 173.424 183.381 173.424C184.403 173.424 185.233 172.988 185.871 172.115C186.509 171.236 186.828 170.084 186.828 168.658C186.828 167.408 186.535 166.415 185.949 165.68C185.363 164.944 184.582 164.576 183.605 164.576C182.44 164.576 181.538 164.967 180.9 165.748C180.262 166.529 179.943 167.447 179.943 168.502ZM192.697 176.041C192.333 176.939 191.929 177.607 191.486 178.043C191.044 178.479 190.474 178.697 189.777 178.697C189.484 178.697 189.224 178.652 188.996 178.561V177.662C189.23 177.753 189.504 177.799 189.816 177.799C190.617 177.799 191.249 177.245 191.711 176.139L192.639 173.922L188.85 164H189.855L192.873 172.145C192.938 172.32 192.984 172.454 193.01 172.545C193.036 172.669 193.065 172.779 193.098 172.877H193.137L193.371 172.203L196.594 164H197.57L192.697 176.041Z" fill="white"/>
+            <circle cx="170" cy="167" r="95.5" stroke="#3279CD"/>
+            <defs>
+              <pattern id="pattern0" patterncontentunits="objectBoundingBox" width="1" height="1">
+                <use href="#image0" transform="translate(0 -0.000614199) scale(0.000938967 0.00114426)"/>
+              </pattern>
+              <pattern id="pattern1" patterncontentunits="objectBoundingBox" width="1" height="1">
+                <use href="#image0" transform="translate(0 -0.000614199) scale(0.000938967 0.00114426)"/>
+              </pattern>
+              <image id="image0" width="1065" height="875" href="./img/game/continue.png"/>
+            </defs>
+          </svg>
+        </div>
+      </div>
+      <div class="col-info">
+        <div>
+          <div>
+            <svg width="52" height="28" viewbox="0 0 52 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M22.7268 21.1187C19.9255 19.7287 18 16.8392 18 13.5C18 8.80558 21.8056 5 26.5 5C31.1944 5 35 8.80558 35 13.5C35 16.8392 33.0745 19.7287 30.2733 21.1187" stroke="#3279CD" stroke-width="2" stroke-linecap="round"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M18.1185 12.6924C15.7775 13.1088 14 15.1543 14 17.6149C14 20.3764 16.2386 22.6149 19 22.6149C20.22 22.6149 21.3379 22.178 22.2058 21.4521C21.6021 21.098 21.0459 20.6715 20.5492 20.1845C20.097 20.4577 19.5669 20.6149 19 20.6149C17.3431 20.6149 16 19.2718 16 17.6149C16 16.2992 16.847 15.1814 18.0254 14.7768C18.0086 14.5584 18 14.3377 18 14.115C18 13.6302 18.0406 13.155 18.1185 12.6924Z" fill="#3279CD"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M34.7646 14.7768C34.7814 14.5584 34.79 14.3377 34.79 14.1149C34.79 13.6302 34.7494 13.1549 34.6715 12.6924C37.0125 13.1088 38.79 15.1543 38.79 17.6149C38.79 20.3764 36.5515 22.6149 33.79 22.6149C32.57 22.6149 31.4521 22.178 30.5842 21.4521C31.1879 21.0979 31.7441 20.6714 32.2407 20.1844C32.693 20.4577 33.2231 20.6149 33.79 20.6149C35.4469 20.6149 36.79 19.2718 36.79 17.6149C36.79 16.2992 35.9431 15.1814 34.7646 14.7768Z" fill="#3279CD"/>
+            </svg>
+          </div>
+          <div>Включите звук для полного погружения</div>
+        </div>
+        <div>
+          <div>
+            <svg width="52" height="28" viewbox="0 0 52 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M41 17.5L48 14L41 10.5" stroke="#3279CD" stroke-width="2" stroke-linecap="round"/>
+              <path d="M11 17.5L4 14L11 10.5" stroke="#3279CD" stroke-width="2" stroke-linecap="round"/>
+              <path d="M27.3744 15.3743L24.361 18.3877C24.1109 18.6378 23.6873 18.5562 23.5479 18.2311L18.5355 6.53551L30.2311 11.5479C30.5562 11.6872 30.6378 12.1109 30.3877 12.361L27.3744 15.3743ZM27.3744 15.3743L33 21" stroke="#3279CD" stroke-width="2"/>
+            </svg>
+          </div>
+          <div>Осматривайтесь, двигая курсор по сторонам</div>
+        </div>
+        <div>
+          <div>
+            <svg width="52" height="28" viewbox="0 0 52 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M30.3744 19.8743L27.361 22.8877C27.1109 23.1378 26.6873 23.0562 26.5479 22.7311L21.5355 11.0355L33.2311 16.0479C33.5562 16.1872 33.6378 16.6109 33.3877 16.861L30.3744 19.8743ZM30.3744 19.8743L36 25.5" stroke="#3279CD" stroke-width="2"/>
+              <path d="M20.75 2V6" stroke="#3279CD" stroke-width="2" stroke-linecap="round"/>
+              <path d="M16 10.75L12 10.75" stroke="#3279CD" stroke-width="2" stroke-linecap="round"/>
+              <path d="M17.3914 7.39124L14.563 4.56281" stroke="#3279CD" stroke-width="2" stroke-linecap="round"/>
+              <path d="M26.9375 4.56274L24.1091 7.39117" stroke="#3279CD" stroke-width="2" stroke-linecap="round"/>
+              <path d="M17.3914 14.1088L14.563 16.9372" stroke="#3279CD" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>Двигайтесь, зажимая левую клавишу мыши или клавишу “вверх”</div>
+        </div>
+        <div>
+          <div>
+            <svg width="26" height="13" viewbox="0 0 26 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6.67188 12H0.382812V0.796875H6.42188V2.375H2.24219V5.54688H6.09375V7.11719H2.24219V10.4297H6.67188V12ZM8.14844 11.5547V9.64062C8.32031 9.79688 8.52344 9.9375 8.75781 10.0625C8.9974 10.1875 9.25 10.2943 9.51562 10.3828C9.78125 10.4661 10.0469 10.5312 10.3125 10.5781C10.5781 10.625 10.8229 10.6484 11.0469 10.6484C11.8281 10.6484 12.4089 10.5182 12.7891 10.2578C13.1745 9.9974 13.3672 9.61979 13.3672 9.125C13.3672 8.85938 13.3021 8.63021 13.1719 8.4375C13.0469 8.23958 12.8698 8.0599 12.6406 7.89844C12.4115 7.73698 12.1406 7.58333 11.8281 7.4375C11.5208 7.28646 11.1901 7.13021 10.8359 6.96875C10.4557 6.76562 10.1016 6.5599 9.77344 6.35156C9.44531 6.14323 9.15885 5.91406 8.91406 5.66406C8.67448 5.40885 8.48438 5.1224 8.34375 4.80469C8.20833 4.48698 8.14062 4.11458 8.14062 3.6875C8.14062 3.16146 8.25781 2.70573 8.49219 2.32031C8.73177 1.92969 9.04427 1.60938 9.42969 1.35938C9.82031 1.10417 10.263 0.916667 10.7578 0.796875C11.2526 0.671875 11.7578 0.609375 12.2734 0.609375C13.4453 0.609375 14.2995 0.742188 14.8359 1.00781V2.84375C14.2005 2.38542 13.3828 2.15625 12.3828 2.15625C12.1068 2.15625 11.8307 2.18229 11.5547 2.23438C11.2839 2.28646 11.0391 2.3724 10.8203 2.49219C10.6068 2.61198 10.4323 2.76562 10.2969 2.95312C10.1615 3.14062 10.0938 3.36719 10.0938 3.63281C10.0938 3.88281 10.1458 4.09896 10.25 4.28125C10.3542 4.46354 10.5052 4.63021 10.7031 4.78125C10.9062 4.93229 11.151 5.08073 11.4375 5.22656C11.7292 5.36719 12.0651 5.52083 12.4453 5.6875C12.8359 5.89062 13.2031 6.10417 13.5469 6.32812C13.8958 6.55208 14.2005 6.79948 14.4609 7.07031C14.7266 7.34115 14.9349 7.64323 15.0859 7.97656C15.2422 8.30469 15.3203 8.67969 15.3203 9.10156C15.3203 9.66927 15.2057 10.1484 14.9766 10.5391C14.7474 10.9297 14.4375 11.2474 14.0469 11.4922C13.6615 11.737 13.2161 11.9141 12.7109 12.0234C12.2057 12.1328 11.6719 12.1875 11.1094 12.1875C10.9219 12.1875 10.6901 12.1719 10.4141 12.1406C10.1432 12.1146 9.86458 12.0729 9.57812 12.0156C9.29167 11.9635 9.02083 11.8984 8.76562 11.8203C8.51042 11.7422 8.30469 11.6536 8.14844 11.5547ZM25.1953 11.5312C24.3516 11.9688 23.3021 12.1875 22.0469 12.1875C20.4219 12.1875 19.1198 11.6745 18.1406 10.6484C17.1615 9.6224 16.6719 8.27604 16.6719 6.60938C16.6719 4.81771 17.2214 3.36979 18.3203 2.26562C19.4245 1.16146 20.8177 0.609375 22.5 0.609375C23.5833 0.609375 24.4818 0.763021 25.1953 1.07031V2.91406C24.4401 2.46615 23.6068 2.24219 22.6953 2.24219C21.4818 2.24219 20.4974 2.63021 19.7422 3.40625C18.9922 4.18229 18.6172 5.21875 18.6172 6.51562C18.6172 7.75 18.9688 8.73438 19.6719 9.46875C20.375 10.1979 21.2995 10.5625 22.4453 10.5625C23.5026 10.5625 24.4193 10.3125 25.1953 9.8125V11.5312Z" fill="#3279CD"/>
+            </svg>
+          </div>
+          <div>Нажмите ESC, чтобы выйти в главное меню</div>
+        </div>
+        <div>
+          <div>
+            <svg width="24" height="50" viewbox="0 0 24 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M15.0232 39.3139L15.0233 39.3139C17.9634 39.828 20.1201 40.8766 21.2951 42.044C21.8759 42.621 22.1823 43.1906 22.2785 43.709C22.3714 44.2099 22.2851 44.7482 21.924 45.3271C21.1657 46.543 19.3572 47.6308 16.8015 48.2629C14.2926 48.8833 11.2569 49.0127 8.31159 48.4926L8.31157 48.4926C5.34791 47.9693 3.1805 46.9145 2.00578 45.7469C1.42518 45.1698 1.12324 44.6032 1.03155 44.091C0.943126 43.597 1.03309 43.0647 1.40203 42.4905C2.18169 41.2771 4.00948 40.1919 6.56688 39.5591C9.07856 38.9375 12.104 38.8031 15.0232 39.3139Z" stroke="#3279CD" stroke-width="2"/>
+              <path d="M11.0031 30C15.2659 24.0932 18.5562 19.9158 19.4684 16.6062C19.8125 15.3715 20 14.04 20 12.6518C20 6.2167 15.9706 1 11 1C6.02944 1 2 6.2167 2 12.6518C2 14.3198 2.2707 15.9058 2.75833 17.3404C3.83664 20.6682 6.95772 24.568 11.0031 30Z" stroke="#3279CD" stroke-width="2"/>
+            </svg>
+          </div>
+          <div>Встаньте под красную метку, чтобы получить информацию об объекте</div>
+        </div>
+      </div>
+      <div class="col-map">
+        <div class="map"><img src="./img/game/map/scheme0-0.png"></div>
+        <div class="nav">
+          <div>
+            <div><img src="./img/game/map/point.png"></div>
+            <div>3 Этаж<br>Общество</div>
+          </div>
+          <div>
+            <div><img src="./img/game/map/point.png"></div>
+            <div>2 Этаж<br>Личность</div>
+          </div>
+          <div>
+            <div><img src="./img/game/map/selected.png"></div>
+            <div>1 Этаж<br>Бизнес</div>
+          </div>
+        </div>
+        <div class="stat">Объектов найдено
+          <div class="stats-counter">0 / 9</div>
+        </div>
+      </div>
+    </div>
+    <div class="obj-card disabled" id="game-object">
+      <div class="object-card-container">
+        <div class="object-container" id="object-card"><!-- modals -->
+          <div class="modal__graph modal__graph1">
+            <div class="modal__graph-content">
+              <div class="modal__graph-header"> 
+                <div class="modal-decor-lottie" data-lottie="./content/lottie/wave.json"></div>
+                <div class="header-btn">
+                  <div class="modal__close"> </div>
+                </div>
+              </div>
+              <div class="modal__graph-body">
+                <div class="graph_lottie graph-1-lottie" data-lottie="./content/lottie/1-1/1-1.json"></div>
+              </div>
+            </div>
+          </div>
+          <div class="modal__graph modal__graph2">
+            <div class="modal__graph-content">
+              <div class="modal__graph-header"> 
+                <div class="modal-decor-lottie" data-lottie="./content/lottie/wave.json"></div>
+                <div class="header-btn">
+                  <div class="modal__close"> </div>
+                </div>
+              </div>
+              <div class="modal__graph-body">
+                <div class="graph_lottie graph-2-lottie" data-lottie="./content/lottie/1-1/1-2.json"></div>
+              </div>
+            </div>
+          </div>
+          <div class="modal__graph modal__graph-text">
+            <div class="modal__graph-content">
+              <div class="modal__graph-header">
+                <div class="modal-decor-lottie" data-lottie="./content/lottie/wave.json"></div>
+                <div class="header-btn">
+                  <div class="modal__close"> </div>
+                </div>
+              </div>
+              <div class="modal__graph-body"></div>
+            </div>
+          </div><!-- /modals -->     
+          <header class="header">
+            <h1><span class="main"> </span><span class="extra"></span></h1>
+          </header>
+          <section class="description">
+            <section class="content"></section>
+          </section>
+          <section class="object-area">
+            <model-viewer class="fill" src auto-rotate camera-controls data-js-focus-visible></model-viewer>
+          </section>
+          <section class="graphs">
+            <figure class="graph1">
+              <div class="graph_lottie graph-1-lottie" data-lottie="./content/lottie/1-1/1-1.json"></div>
+            </figure>
+            <figure class="graph2">
+              <div class="graph_lottie graph-2-lottie" data-lottie="./content/lottie/1-1/1-2.json"></div>
+            </figure>
+          </section>
+          <div class="decor-bottom-center"><img src="./img/objects/tree1.svg"></div>
+          <div class="decor-bottom-right" data-lottie="./content/lottie/wave.json"></div>
+          <div class="decor-top-right">
+            <div data-lottie="./content/lottie/sun.json"> </div>
+            <div>
+              <svg width="100%" height="100%" viewbox="0 0 144 95" preserveaspectratio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g style="mix-blend-mode:multiply">
+                  <rect x="56" y="32" width="5.41538" height="5.16923" fill="#7DE3FC"/>
+                  <rect x="51" y="27" width="5.41538" height="5.16923" fill="#7DE3FC"/>
+                  <rect x="88" y="27" width="5.41538" height="5.16923" fill="#7DE3FC"/>
+                  <rect x="88" y="63" width="5.41538" height="5.16923" fill="#7DE3FC"/>
+                  <rect x="51" y="63" width="5.41538" height="5.16923" fill="#7DE3FC"/>
+                  <rect x="56" y="42" width="5.41538" height="5.16923" fill="#7DE3FC"/>
+                  <rect x="56" y="52.6769" width="5.41538" height="5.16923" fill="#7DE3FC"/>
+                  <rect x="56" y="37.1692" width="5.41538" height="5.16923" fill="white"/>
+                  <rect x="56" y="47.5077" width="5.41538" height="5.16923" fill="white"/>
+                  <rect x="56" y="57.8462" width="5.41538" height="5.16923" fill="white"/>
+                  <rect x="66.5846" y="32" width="5.41538" height="5.16923" fill="#7DE3FC"/>
+                  <rect x="66.5846" y="42.3385" width="5.41538" height="5.16923" fill="white"/>
+                  <rect x="66.5846" y="52.6769" width="5.41538" height="5.16923" fill="#7DE3FC"/>
+                  <rect x="66.5846" y="37.1692" width="5.41538" height="5.16923" fill="white"/>
+                  <rect x="66.5846" y="47.5077" width="5.41538" height="5.16923" fill="white"/>
+                  <rect x="66.5846" y="57.8462" width="5.41538" height="5.16923" fill="#7DE3FC"/>
+                  <rect x="77.4154" y="32" width="5.16923" height="5.16923" fill="#7DE3FC"/>
+                  <rect x="77.4154" y="42.3385" width="5.16923" height="5.16923" fill="#7DE3FC"/>
+                  <rect x="77.4154" y="52.6769" width="5.16923" height="5.16923" fill="white"/>
+                  <rect x="77.4154" y="37.1692" width="5.16923" height="5.16923" fill="#7DE3FC"/>
+                  <rect x="77.4154" y="47.5077" width="5.16923" height="5.16923" fill="white"/>
+                  <rect x="77.4154" y="57.8462" width="5.16923" height="5.16923" fill="white"/>
+                  <rect x="61.4154" y="32" width="5.16923" height="5.16923" fill="white"/>
+                  <rect x="61.4154" y="42.3385" width="5.16923" height="5.16923" fill="white"/>
+                  <rect x="61.4154" y="52.6769" width="5.16923" height="5.16923" fill="#7DE3FC"/>
+                  <rect x="61.4154" y="37.1692" width="5.16923" height="5.16923" fill="white"/>
+                  <rect x="61.4154" y="47.5077" width="5.16923" height="5.16923" fill="#7DE3FC"/>
+                  <rect x="61.4154" y="57.8462" width="5.16923" height="5.16923" fill="#7DE3FC"/>
+                  <rect x="72" y="32" width="5.41538" height="5.16923" fill="white"/>
+                  <rect x="72" y="42.3385" width="5.41538" height="5.16923" fill="white"/>
+                  <rect x="72" y="52.6769" width="5.41538" height="5.16923" fill="white"/>
+                  <rect x="72" y="37.1692" width="5.41538" height="5.16923" fill="#7DE3FC"/>
+                  <rect x="72" y="47.5077" width="5.41538" height="5.16923" fill="#7DE3FC"/>
+                  <rect x="72" y="57.8462" width="5.41538" height="5.16923" fill="#7DE3FC"/>
+                  <rect x="82.5846" y="32" width="5.41538" height="5.16923" fill="white"/>
+                  <rect x="82.5846" y="42.3385" width="5.41538" height="5.16923" fill="#7DE3FC"/>
+                  <rect x="82.5846" y="52.6769" width="5.41538" height="5.16923" fill="white"/>
+                  <rect x="82.5846" y="37.1692" width="5.41538" height="5.16923" fill="#7DE3FC"/>
+                  <rect x="82.5846" y="47.5077" width="5.41538" height="5.16923" fill="#7DE3FC"/>
+                  <rect x="82.5846" y="57.8462" width="5.41538" height="5.16923" fill="white"/>
+                </g>
+              </svg>
+            </div>
+            <button class="close-btn">
+              <svg width="100%" height="100%" viewbox="0 0 97 97" preserveaspectratio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M96 1L0.999996 96" stroke="#7DE3FC"/>
+                <path d="M96 96L0.999996 1" stroke="#7DE3FC"/>
+              </svg><span>Закрыть</span>
+            </button>
+          </div>
+          <div class="decor-top-center"><img src="./img/objects/floor1.svg"></div>
+          <div class="decor-top-center2">
+            <svg width="100%" height="93" viewbox="0 0 213 93" fill="none" preserveaspectratio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+              <rect width="8.96842" height="93" fill="#7DE3FC"/>
+              <rect x="96.4105" width="8.96842" height="93" fill="#7DE3FC"/>
+              <rect x="70.6264" width="8.96842" height="93" fill="#7DE3FC"/>
+              <rect x="11.2105" width="5.60526" height="93" fill="#7DE3FC"/>
+              <rect x="110.984" width="5.60526" height="93" fill="#7DE3FC"/>
+              <rect x="19" width="8" height="93" fill="#7DE3FC"/>
+              <rect x="186.095" width="5.60526" height="93" fill="#7DE3FC"/>
+              <rect x="34.7526" width="1.12105" height="93" fill="#7DE3FC"/>
+              <rect x="193.942" width="1.12105" height="93" fill="#7DE3FC"/>
+              <rect x="44.8421" width="3.36316" height="93" fill="#7DE3FC"/>
+              <rect x="200.668" width="3.36316" height="93" fill="#7DE3FC"/>
+              <rect x="38.1158" width="1.12105" height="93" fill="#7DE3FC"/>
+              <rect x="197.305" width="1.12105" height="93" fill="#7DE3FC"/>
+              <rect x="118.832" width="1.12105" height="93" fill="#7DE3FC"/>
+              <rect x="93.0474" width="1.12105" height="93" fill="#7DE3FC"/>
+              <rect x="59.4157" width="3.36316" height="93" fill="#7DE3FC"/>
+              <rect x="206.274" width="3.36316" height="93" fill="#7DE3FC"/>
+              <rect x="122" width="22" height="93" fill="#7DE3FC"/>
+              <rect x="141.253" width="8.96842" height="93" fill="#7DE3FC"/>
+              <rect x="81.8369" width="8.96842" height="93" fill="#7DE3FC"/>
+              <rect x="133.405" width="5.60526" height="93" fill="#7DE3FC"/>
+              <rect x="152.463" width="5.60526" height="93" fill="#7DE3FC"/>
+              <rect x="26.9052" width="5.60526" height="93" fill="#7DE3FC"/>
+              <rect x="160.31" width="5.60526" height="93" fill="#7DE3FC"/>
+              <rect x="41.479" width="1.12105" height="93" fill="#7DE3FC"/>
+              <rect x="168.158" width="1.12105" height="93" fill="#7DE3FC"/>
+              <rect x="53.8105" width="3.36316" height="93" fill="#7DE3FC"/>
+              <rect x="174.884" width="3.36316" height="93" fill="#7DE3FC"/>
+              <rect x="50.4474" width="1.12105" height="93" fill="#7DE3FC"/>
+              <rect x="171.521" width="1.12105" height="93" fill="#7DE3FC"/>
+              <rect x="211.879" width="1.12105" height="93" fill="#7DE3FC"/>
+              <rect x="107.621" width="1.12105" height="93" fill="#7DE3FC"/>
+              <rect x="65.021" width="3.36316" height="93" fill="#7DE3FC"/>
+              <rect x="180.49" width="3.36316" height="93" fill="#7DE3FC"/>
+            </svg>
+          </div>
+          <div class="decor-bg">
+            <div class="circle1"></div>
+            <div class="circle2"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="escape-btn" id="game-esc"> 
+      <svg width="26" height="13" viewbox="0 0 26 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6.67188 12H0.382812V0.796875H6.42188V2.375H2.24219V5.54688H6.09375V7.11719H2.24219V10.4297H6.67188V12ZM8.14844 11.5547V9.64062C8.32031 9.79688 8.52344 9.9375 8.75781 10.0625C8.9974 10.1875 9.25 10.2943 9.51562 10.3828C9.78125 10.4661 10.0469 10.5312 10.3125 10.5781C10.5781 10.625 10.8229 10.6484 11.0469 10.6484C11.8281 10.6484 12.4089 10.5182 12.7891 10.2578C13.1745 9.9974 13.3672 9.61979 13.3672 9.125C13.3672 8.85938 13.3021 8.63021 13.1719 8.4375C13.0469 8.23958 12.8698 8.0599 12.6406 7.89844C12.4115 7.73698 12.1406 7.58333 11.8281 7.4375C11.5208 7.28646 11.1901 7.13021 10.8359 6.96875C10.4557 6.76562 10.1016 6.5599 9.77344 6.35156C9.44531 6.14323 9.15885 5.91406 8.91406 5.66406C8.67448 5.40885 8.48438 5.1224 8.34375 4.80469C8.20833 4.48698 8.14062 4.11458 8.14062 3.6875C8.14062 3.16146 8.25781 2.70573 8.49219 2.32031C8.73177 1.92969 9.04427 1.60938 9.42969 1.35938C9.82031 1.10417 10.263 0.916667 10.7578 0.796875C11.2526 0.671875 11.7578 0.609375 12.2734 0.609375C13.4453 0.609375 14.2995 0.742188 14.8359 1.00781V2.84375C14.2005 2.38542 13.3828 2.15625 12.3828 2.15625C12.1068 2.15625 11.8307 2.18229 11.5547 2.23438C11.2839 2.28646 11.0391 2.3724 10.8203 2.49219C10.6068 2.61198 10.4323 2.76562 10.2969 2.95312C10.1615 3.14062 10.0938 3.36719 10.0938 3.63281C10.0938 3.88281 10.1458 4.09896 10.25 4.28125C10.3542 4.46354 10.5052 4.63021 10.7031 4.78125C10.9062 4.93229 11.151 5.08073 11.4375 5.22656C11.7292 5.36719 12.0651 5.52083 12.4453 5.6875C12.8359 5.89062 13.2031 6.10417 13.5469 6.32812C13.8958 6.55208 14.2005 6.79948 14.4609 7.07031C14.7266 7.34115 14.9349 7.64323 15.0859 7.97656C15.2422 8.30469 15.3203 8.67969 15.3203 9.10156C15.3203 9.66927 15.2057 10.1484 14.9766 10.5391C14.7474 10.9297 14.4375 11.2474 14.0469 11.4922C13.6615 11.737 13.2161 11.9141 12.7109 12.0234C12.2057 12.1328 11.6719 12.1875 11.1094 12.1875C10.9219 12.1875 10.6901 12.1719 10.4141 12.1406C10.1432 12.1146 9.86458 12.0729 9.57812 12.0156C9.29167 11.9635 9.02083 11.8984 8.76562 11.8203C8.51042 11.7422 8.30469 11.6536 8.14844 11.5547ZM25.1953 11.5312C24.3516 11.9688 23.3021 12.1875 22.0469 12.1875C20.4219 12.1875 19.1198 11.6745 18.1406 10.6484C17.1615 9.6224 16.6719 8.27604 16.6719 6.60938C16.6719 4.81771 17.2214 3.36979 18.3203 2.26562C19.4245 1.16146 20.8177 0.609375 22.5 0.609375C23.5833 0.609375 24.4818 0.763021 25.1953 1.07031V2.91406C24.4401 2.46615 23.6068 2.24219 22.6953 2.24219C21.4818 2.24219 20.4974 2.63021 19.7422 3.40625C18.9922 4.18229 18.6172 5.21875 18.6172 6.51562C18.6172 7.75 18.9688 8.73438 19.6719 9.46875C20.375 10.1979 21.2995 10.5625 22.4453 10.5625C23.5026 10.5625 24.4193 10.3125 25.1953 9.8125V11.5312Z" fill="#3279CD"/>
+      </svg>
+    </div>
+    <div class="navigation disabled" id="game-nav">
+      <div class="bg">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="map">
+        <div class="content"><img src="./img/game/floor1.png"></div>
+      </div>
+      <div class="text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus nobis voluptates ullam commodi aliquam sed? Quae, aliquid architecto dolorum fuga maxime vel quia magnam? Amet recusandae dignissimos cumque similique odit.</div>
+    </div>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.3/lottie.min.js" type="text/javascript"></script>
+    <script src="./js/game-wrapper.min.js"></script>
+    <script src="./content/game/Build/UnityLoader.js"></script>
+    <script>
+      //- %UNITY_WEBGL_BUILD_URL%"
+      var unityInstance = UnityLoader.instantiate("game-container", "./content/game/Build/Build.json", {onProgress: (i,p)=>window.game_nav.setProgress(Math.floor(p*100))});
+      window._gameFpsQualityMonitor.start();
+    </script>
+  </body>
+</html>
