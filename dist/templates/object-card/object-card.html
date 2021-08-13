@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <base href="./../../">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object card</title>
+    <link rel="stylesheet" href="./templates/object-card/object-card.css">
+    <style>
+      html, body{margin: 0;}
+      body {padding: 0;}
+      body{padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif;}
+      
+      @font-face{font-family: 'Segoe UI'; src: url("fonts/SegoeUI.ttf");}
+      @font-face{font-family: 'Segoe UI'; font-weight: bold; src: url("fonts/SegoeUI-Bold.ttf");}
+    </style>
+  </head>
+  <body>
+    <div class="object-card-container">
+      <div class="scroll-booster" id="object-btns">
+        <div class="scroll-booster-content">
+          <div class="object-btn">1
+          </div>
+          <div class="object-btn">2
+          </div>
+          <div class="object-btn">3
+          </div>
+          <div class="object-btn">4
+          </div>
+          <div class="object-btn">5
+          </div>
+          <div class="object-btn">6
+          </div>
+          <div class="object-btn">7
+          </div>
+          <div class="object-btn">8
+          </div>
+          <div class="object-btn">9
+          </div>
+        </div>
+      </div>
+      <div class="object-container" id="object-card"><!-- modals -->
+        <div class="modal__graph modal__graph1">
+          <div class="modal__graph-content">
+            <div class="modal__graph-header"> 
+              <div class="modal-decor-lottie" data-lottie="./content/lottie/wave.json"></div>
+              <div class="header-btn">
+                <div class="modal__close"> </div>
+              </div>
+            </div>
+            <div class="modal__graph-body">
+              <div class="graph_lottie graph-1-lottie" data-lottie="./content/lottie/1-1/1-1.json"></div>
+            </div>
+          </div>
+        </div>
+        <div class="modal__graph modal__graph2">
+          <div class="modal__graph-content">
+            <div class="modal__graph-header"> 
+              <div class="modal-decor-lottie" data-lottie="./content/lottie/wave.json"></div>
+              <div class="header-btn">
+                <div class="modal__close"> </div>
+              </div>
+            </div>
+            <div class="modal__graph-body">
+              <div class="graph_lottie graph-2-lottie" data-lottie="./content/lottie/1-1/1-2.json"></div>
+            </div>
+          </div>
+        </div>
+        <div class="modal__graph modal__graph-text">
+          <div class="modal__graph-content">
+            <div class="modal__graph-header">
+              <div class="modal-decor-lottie" data-lottie="./content/lottie/wave.json"></div>
+              <div class="header-btn">
+                <div class="modal__close"> </div>
+              </div>
+            </div>
+            <div class="modal__graph-body"></div>
+          </div>
+        </div><!-- /modals -->     
+        <header class="header">
+          <h1><span class="main"> </span><span class="extra"></span></h1>
+        </header>
+        <section class="description">
+          <section class="content"></section>
+        </section>
+        <section class="object-area">
+          <model-viewer class="fill" src="" auto-rotate camera-controls data-js-focus-visible></model-viewer>
+        </section>
+        <section class="graphs">
+          <figure class="graph1">
+            <div class="graph_lottie graph-1-lottie" data-lottie="./content/lottie/1-1/1-1.json"></div>
+          </figure>
+          <figure class="graph2">
+            <div class="graph_lottie graph-2-lottie" data-lottie="./content/lottie/1-1/1-2.json"></div>
+          </figure>
+        </section>
+        <div class="decor-bottom-center"><img src="./img/objects/tree1.svg"></div>
+        <div class="decor-bottom-right" data-lottie="./content/lottie/wave.json"></div>
+        <div class="decor-top-right">
+          <div data-lottie="./content/lottie/sun.json"> </div>
+          <div>
+            <svg width="100%" height="100%" viewBox="0 0 144 95" preserveAspectRatio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g style="mix-blend-mode:multiply">
+                <rect x="56" y="32" width="5.41538" height="5.16923" fill="#7DE3FC"></rect>
+                <rect x="51" y="27" width="5.41538" height="5.16923" fill="#7DE3FC"></rect>
+                <rect x="88" y="27" width="5.41538" height="5.16923" fill="#7DE3FC"></rect>
+                <rect x="88" y="63" width="5.41538" height="5.16923" fill="#7DE3FC"></rect>
+                <rect x="51" y="63" width="5.41538" height="5.16923" fill="#7DE3FC"></rect>
+                <rect x="56" y="42" width="5.41538" height="5.16923" fill="#7DE3FC"></rect>
+                <rect x="56" y="52.6769" width="5.41538" height="5.16923" fill="#7DE3FC"></rect>
+                <rect x="56" y="37.1692" width="5.41538" height="5.16923" fill="white"></rect>
+                <rect x="56" y="47.5077" width="5.41538" height="5.16923" fill="white"></rect>
+                <rect x="56" y="57.8462" width="5.41538" height="5.16923" fill="white"></rect>
+                <rect x="66.5846" y="32" width="5.41538" height="5.16923" fill="#7DE3FC"></rect>
+                <rect x="66.5846" y="42.3385" width="5.41538" height="5.16923" fill="white"></rect>
+                <rect x="66.5846" y="52.6769" width="5.41538" height="5.16923" fill="#7DE3FC"></rect>
+                <rect x="66.5846" y="37.1692" width="5.41538" height="5.16923" fill="white"></rect>
+                <rect x="66.5846" y="47.5077" width="5.41538" height="5.16923" fill="white"></rect>
+                <rect x="66.5846" y="57.8462" width="5.41538" height="5.16923" fill="#7DE3FC"></rect>
+                <rect x="77.4154" y="32" width="5.16923" height="5.16923" fill="#7DE3FC"></rect>
+                <rect x="77.4154" y="42.3385" width="5.16923" height="5.16923" fill="#7DE3FC"></rect>
+                <rect x="77.4154" y="52.6769" width="5.16923" height="5.16923" fill="white"></rect>
+                <rect x="77.4154" y="37.1692" width="5.16923" height="5.16923" fill="#7DE3FC"></rect>
+                <rect x="77.4154" y="47.5077" width="5.16923" height="5.16923" fill="white"></rect>
+                <rect x="77.4154" y="57.8462" width="5.16923" height="5.16923" fill="white"></rect>
+                <rect x="61.4154" y="32" width="5.16923" height="5.16923" fill="white"></rect>
+                <rect x="61.4154" y="42.3385" width="5.16923" height="5.16923" fill="white"></rect>
+                <rect x="61.4154" y="52.6769" width="5.16923" height="5.16923" fill="#7DE3FC"></rect>
+                <rect x="61.4154" y="37.1692" width="5.16923" height="5.16923" fill="white"></rect>
+                <rect x="61.4154" y="47.5077" width="5.16923" height="5.16923" fill="#7DE3FC"></rect>
+                <rect x="61.4154" y="57.8462" width="5.16923" height="5.16923" fill="#7DE3FC"></rect>
+                <rect x="72" y="32" width="5.41538" height="5.16923" fill="white"></rect>
+                <rect x="72" y="42.3385" width="5.41538" height="5.16923" fill="white"></rect>
+                <rect x="72" y="52.6769" width="5.41538" height="5.16923" fill="white"></rect>
+                <rect x="72" y="37.1692" width="5.41538" height="5.16923" fill="#7DE3FC"></rect>
+                <rect x="72" y="47.5077" width="5.41538" height="5.16923" fill="#7DE3FC"></rect>
+                <rect x="72" y="57.8462" width="5.41538" height="5.16923" fill="#7DE3FC"></rect>
+                <rect x="82.5846" y="32" width="5.41538" height="5.16923" fill="white"></rect>
+                <rect x="82.5846" y="42.3385" width="5.41538" height="5.16923" fill="#7DE3FC"></rect>
+                <rect x="82.5846" y="52.6769" width="5.41538" height="5.16923" fill="white"></rect>
+                <rect x="82.5846" y="37.1692" width="5.41538" height="5.16923" fill="#7DE3FC"></rect>
+                <rect x="82.5846" y="47.5077" width="5.41538" height="5.16923" fill="#7DE3FC"></rect>
+                <rect x="82.5846" y="57.8462" width="5.41538" height="5.16923" fill="white"></rect>
+              </g>
+            </svg>
+          </div>
+          <div>
+            <svg width="100%" height="100%" viewBox="0 0 145 96" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M144 1L0.999999 95" stroke="#7DE3FC"></path>
+              <path d="M144 95L0.999999 1" stroke="#7DE3FC"></path>
+            </svg>
+          </div>
+        </div>
+        <div class="decor-top-center"><img src="./img/objects/floor1.svg"></div>
+        <div class="decor-top-center2">
+          <svg width="100%" height="93" viewBox="0 0 213 93" fill="none" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <rect width="8.96842" height="93" fill="#7DE3FC"></rect>
+            <rect x="96.4105" width="8.96842" height="93" fill="#7DE3FC"></rect>
+            <rect x="70.6264" width="8.96842" height="93" fill="#7DE3FC"></rect>
+            <rect x="11.2105" width="5.60526" height="93" fill="#7DE3FC"></rect>
+            <rect x="110.984" width="5.60526" height="93" fill="#7DE3FC"></rect>
+            <rect x="19" width="8" height="93" fill="#7DE3FC"></rect>
+            <rect x="186.095" width="5.60526" height="93" fill="#7DE3FC"></rect>
+            <rect x="34.7526" width="1.12105" height="93" fill="#7DE3FC"></rect>
+            <rect x="193.942" width="1.12105" height="93" fill="#7DE3FC"></rect>
+            <rect x="44.8421" width="3.36316" height="93" fill="#7DE3FC"></rect>
+            <rect x="200.668" width="3.36316" height="93" fill="#7DE3FC"></rect>
+            <rect x="38.1158" width="1.12105" height="93" fill="#7DE3FC"></rect>
+            <rect x="197.305" width="1.12105" height="93" fill="#7DE3FC"></rect>
+            <rect x="118.832" width="1.12105" height="93" fill="#7DE3FC"></rect>
+            <rect x="93.0474" width="1.12105" height="93" fill="#7DE3FC"></rect>
+            <rect x="59.4157" width="3.36316" height="93" fill="#7DE3FC"></rect>
+            <rect x="206.274" width="3.36316" height="93" fill="#7DE3FC"></rect>
+            <rect x="122" width="22" height="93" fill="#7DE3FC"></rect>
+            <rect x="141.253" width="8.96842" height="93" fill="#7DE3FC"></rect>
+            <rect x="81.8369" width="8.96842" height="93" fill="#7DE3FC"></rect>
+            <rect x="133.405" width="5.60526" height="93" fill="#7DE3FC"></rect>
+            <rect x="152.463" width="5.60526" height="93" fill="#7DE3FC"></rect>
+            <rect x="26.9052" width="5.60526" height="93" fill="#7DE3FC"></rect>
+            <rect x="160.31" width="5.60526" height="93" fill="#7DE3FC"></rect>
+            <rect x="41.479" width="1.12105" height="93" fill="#7DE3FC"></rect>
+            <rect x="168.158" width="1.12105" height="93" fill="#7DE3FC"></rect>
+            <rect x="53.8105" width="3.36316" height="93" fill="#7DE3FC"></rect>
+            <rect x="174.884" width="3.36316" height="93" fill="#7DE3FC"></rect>
+            <rect x="50.4474" width="1.12105" height="93" fill="#7DE3FC"></rect>
+            <rect x="171.521" width="1.12105" height="93" fill="#7DE3FC"></rect>
+            <rect x="211.879" width="1.12105" height="93" fill="#7DE3FC"></rect>
+            <rect x="107.621" width="1.12105" height="93" fill="#7DE3FC"></rect>
+            <rect x="65.021" width="3.36316" height="93" fill="#7DE3FC"></rect>
+            <rect x="180.49" width="3.36316" height="93" fill="#7DE3FC"></rect>
+          </svg>
+        </div>
+        <div class="decor-bg">
+          <div class="circle1"></div>
+          <div class="circle2"></div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.3/lottie.min.js" type="text/javascript"></script>
+    <script type="module" src="./js/object-card.min.js"></script>
+  </body>
+</html>
